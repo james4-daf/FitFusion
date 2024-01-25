@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import { ClerkProvider } from '@clerk/nextjs'
 import "./globals.css";
 import ConvexClientProvider from "./ConvexClientProvider";
+import Navbar from "./components/Navbar";
+import { Separator } from "@/components/ui/separator"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,11 +18,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <ConvexClientProvider>{children}</ConvexClientProvider>
+          <ConvexClientProvider>
+            <div className="flex justify-center">
+
+            <Navbar/>
+              
+            </div>
+            <div className="flex justify-center">
+
+            <Separator className="max-w-lg"/>
+            </div>
+            {children}
+            </ConvexClientProvider>
           </body>
       </html>
     </ClerkProvider>
