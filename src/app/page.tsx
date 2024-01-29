@@ -1,18 +1,12 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useAuth,useUser } from '@clerk/nextjs'
-
 import {publicStaticData} from '../../publicStaticData'
-
 import SocialPost from './components/SocialPost';
 import { Skeleton } from '@/components/ui/skeleton';
 
-
-
-
 export default function Home() {
 
-  
   const {  userId} = useAuth();
   const { user } = useUser();
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -29,8 +23,6 @@ export default function Home() {
   }, []);
   return (
     <main className="flex min-h-screen flex-col items-center  p-8">
-
-      
       {dataLoaded ? (
         publicStaticData.map((post, index) => (
           <SocialPost key={index} {...post} />
@@ -43,11 +35,8 @@ export default function Home() {
             ))
              }
               
-
-
           </div>
       )}
-
     </main>
   );
 }

@@ -5,6 +5,7 @@ import "./globals.css";
 import ConvexClientProvider from "./ConvexClientProvider";
 import Navbar from "./components/Navbar";
 import { Separator } from "@/components/ui/separator"
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
             <Separator className="max-w-lg"/>
             </div>
             {children}
+            <Toaster />
             </ConvexClientProvider>
           </body>
       </html>

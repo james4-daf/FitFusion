@@ -9,6 +9,7 @@ import GoalSection from '../components/GoalSection';
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import moment from 'moment'
+import ProfileWorkouts from "../components/ProfileWorkouts";
 interface GoalEntry {
     endDate: string;
     goal: string;
@@ -59,8 +60,8 @@ export default function Page() {
         setShowGoalForm(false)
     }
     return (
-
-        <div className="flex justify-center mt-4">
+<>
+      <div className="flex justify-center mt-4">
         <Card className="max-w-xl w-full ">
                 <CardContent className=" justify-center">
                     <p>{user?.firstName}</p>
@@ -87,7 +88,12 @@ export default function Page() {
                     <Button className="my-4"><SignOutButton /></Button>
         </CardContent>
         </Card>
-        </div>
+            </div>
+            <div className="flex justify-center mt-4">
+
+            <ProfileWorkouts />
+            </div>
+        </>
     )
 
 }

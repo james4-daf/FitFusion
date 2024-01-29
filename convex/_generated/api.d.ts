@@ -16,6 +16,7 @@ import type {
 } from "convex/server";
 import type * as goals from "../goals.js";
 import type * as tasks from "../tasks.js";
+import type * as workouts from "../workouts.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -28,6 +29,7 @@ import type * as tasks from "../tasks.js";
 declare const fullApi: ApiFromModules<{
   goals: typeof goals;
   tasks: typeof tasks;
+  workouts: typeof workouts;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

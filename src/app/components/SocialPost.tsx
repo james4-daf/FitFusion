@@ -11,9 +11,9 @@ import FocusGoalBadge from './FocusGoalBadge'
 
 
 interface SocialPost {
-    Username: string,
+    Username?: string,
     WorkoutTitle: string,
-    Focuses: string[]
+    Focuses?: string[]
 }
 
 function SocialPost(props: SocialPost) {
@@ -24,7 +24,7 @@ function SocialPost(props: SocialPost) {
           <CardHeader>
             <div className='flex '>
                   <CardTitle className='pr-4'>{WorkoutTitle}</CardTitle>
-              {Focuses.map((focus,i) => {
+              {Focuses?.map((focus,i) => {
                   return <FocusGoalBadge key={i} className='mr-2'>{focus}</FocusGoalBadge>
                 })}
             </div>
