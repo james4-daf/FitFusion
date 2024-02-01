@@ -1,8 +1,8 @@
-'use client'
-import Link from 'next/link'
-import React from 'react'
-import { useAuth } from '@clerk/nextjs'
-import { Button } from "@/components/ui/button"
+'use client';
+import Link from 'next/link';
+import React from 'react';
+import { useAuth } from '@clerk/nextjs';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -11,28 +11,36 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import CreateWorkout from './CreateWorkout'
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import CreateWorkout from './CreateWorkout';
+import SignOutButton from './SignOutButton';
 
-
-
-
-type Props = {}
+type Props = {};
 
 function Navbar({}: Props) {
-
-    const { userId } = useAuth();
+  const { userId } = useAuth();
   return (
-    <div className='py-4'>
-        <Link href="/" className='mx-10'>Home</Link>
-        {userId ? <Link href="./profile">Profile</Link> : <Link href="./profile">Sign Up</Link>}
-      <div className='absolute right-20 inset-y-4'>
-      <CreateWorkout/>
+    <div className="py-4">
+      <Link href="/" className="mx-10">
+        Home
+      </Link>
+      {userId ? (
+        <Link href="./profile">Profile</Link>
+      ) : (
+        <Link href="./profile">Sign Up</Link>
+      )}
+      <div className="absolute right-20 inset-y-4">
+        <CreateWorkout />
+        {userId && (
+          <div className="my-4">
+            <SignOutButton />
+          </div>
+        )}
       </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
